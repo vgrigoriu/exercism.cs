@@ -3,9 +3,12 @@ using System.Collections.Generic;
 
 public class Robot : IDisposable
 {
-    private static ISet<string> names = new HashSet<string>();
+    private static readonly ISet<string> names = new HashSet<string>();
 
-    private static Random random = new Random();
+    private static readonly Random random = new Random();
+
+    // max number of different names made out of two English letters and three decimal digits
+    private const int MAX_NAMES = 26 * 26 * 10 * 10 * 10;
 
     private string name;
 
@@ -24,6 +27,12 @@ public class Robot : IDisposable
 
     private static string Generate()
     {
+        if (names.Count >= MAX_NAMES)
+        {
+            // we can no longer generate new names
+            throw new InvalidOperationException("out of names");
+        }
+
         string candidate;
         do
         {
