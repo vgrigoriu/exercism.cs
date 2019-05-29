@@ -4,28 +4,17 @@ using System.Linq;
 
 public class HighScores
 {
-    public HighScores(List<int> list)
-    {
-        throw new NotImplementedException();
-    }
+    private readonly List<int> scores;
 
-    public List<int> Scores()
-    {
-        throw new NotImplementedException();
-    }
+    public HighScores(List<int> scores) => this.scores = scores ?? throw new ArgumentNullException(nameof(scores));
 
-    public int Latest()
-    {
-        throw new NotImplementedException();
-    }
+    // make a defensive copy
+    public List<int> Scores() => scores.ToList();
 
-    public int PersonalBest()
-    {
-        throw new NotImplementedException();
-    }
+    // implemented like this for performance, Enumerable.Last() would iterate the whole list
+    public int Latest() => scores[scores.Count - 1];
 
-    public List<int> PersonalTopThree()
-    {
-        throw new NotImplementedException();
-    }
+    public int PersonalBest() => scores.Max();
+
+    public List<int> PersonalTopThree() => scores.OrderByDescending(x => x).Take(3).ToList();
 }
