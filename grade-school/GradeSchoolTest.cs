@@ -14,7 +14,7 @@ public class GradeSchoolTest
         Assert.Equal(expected, sut.Roster());
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Adding_more_student_adds_them_to_the_sorted_roster()
     {
         var sut = new GradeSchool();
@@ -25,7 +25,7 @@ public class GradeSchoolTest
         Assert.Equal(expected, sut.Roster());
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Adding_students_to_different_grades_adds_them_to_the_same_sorted_roster()
     {
         var sut = new GradeSchool();
@@ -35,7 +35,7 @@ public class GradeSchoolTest
         Assert.Equal(expected, sut.Roster());
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Roster_returns_an_empty_list_if_there_are_no_students_enrolled()
     {
         var sut = new GradeSchool();
