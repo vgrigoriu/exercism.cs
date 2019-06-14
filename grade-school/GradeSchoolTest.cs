@@ -58,7 +58,7 @@ public class GradeSchoolTest
         Assert.Equal(expected, sut.Roster());
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Grade_returns_the_students_in_that_grade_in_alphabetical_order()
     {
         var sut = new GradeSchool();

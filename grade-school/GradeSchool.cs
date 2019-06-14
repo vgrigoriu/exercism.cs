@@ -22,7 +22,7 @@ public class GradeSchool
 
     public IEnumerable<string> Grade(int grade)
     {
-        throw new NotImplementedException("You need to implement this function.");
+        return Students(grade).Keys.ToList();
     }
 
     private SortedList<string, string> Students(int grade)
