@@ -3,14 +3,16 @@ using System.Collections.Generic;
 
 public class GradeSchool
 {
+    private List<string> roster = new List<string>();
+
     public void Add(string student, int grade)
     {
-        throw new NotImplementedException("You need to implement this function.");
+        roster.Add(student);
     }
 
     public IEnumerable<string> Roster()
     {
-        throw new NotImplementedException("You need to implement this function.");
+        return roster;
     }
 
     public IEnumerable<string> Grade(int grade)
