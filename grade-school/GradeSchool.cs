@@ -1,22 +1,38 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 public class GradeSchool
 {
-    private List<string> roster = new List<string>();
+    private SortedDictionary<int, SortedList<string, string>> grades = new SortedDictionary<int, SortedList<string, string>>();
 
     public void Add(string student, int grade)
     {
-        roster.Add(student);
+        var students = Students(grade);
+        students.Add(student, student);
     }
 
     public IEnumerable<string> Roster()
     {
-        return roster;
+        return from grade in grades.Keys
+               let students = grades[grade]
+               from student in students.Keys
+               select student;
     }
 
     public IEnumerable<string> Grade(int grade)
     {
         throw new NotImplementedException("You need to implement this function.");
+    }
+
+    private SortedList<string, string> Students(int grade)
+    {
+        // not exactly thread safe
+        if (!grades.ContainsKey(grade))
+        {
+            grades[grade] = new SortedList<string, string>();
+        }
+
+        return grades[grade];
     }
 }

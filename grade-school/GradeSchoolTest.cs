@@ -43,7 +43,7 @@ public class GradeSchoolTest
         Assert.Empty(sut.Roster());
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Student_names_with_grades_are_displayed_in_the_same_sorted_roster()
     {
         var sut = new GradeSchool();
