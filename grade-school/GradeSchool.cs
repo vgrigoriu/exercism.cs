@@ -3,7 +3,7 @@ using System.Linq;
 
 public class GradeSchool
 {
-    private SortedDictionary<int, SortedList<string, string>> grades = new SortedDictionary<int, SortedList<string, string>>();
+    private Grades grades = new Grades();
 
     public void Add(string student, int grade)
     {
@@ -19,14 +19,10 @@ public class GradeSchool
                select student;
     }
 
-    public IEnumerable<string> Grade(int grade)
-    {
-        return Students(grade).Keys.ToList();
-    }
+    public IEnumerable<string> Grade(int grade) => Students(grade).Keys;
 
     private SortedList<string, string> Students(int grade)
     {
-        // not exactly thread safe
         if (!grades.ContainsKey(grade))
         {
             grades[grade] = new SortedList<string, string>();
@@ -34,4 +30,6 @@ public class GradeSchool
 
         return grades[grade];
     }
+
+    private class Grades : SortedDictionary<int, SortedList<string, string>> {}
 }
