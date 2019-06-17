@@ -57,7 +57,7 @@ public class CircularBufferTest
         Assert.Equal(2, buffer.Read());
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Read_position_is_maintained_even_across_multiple_writes()
     {
         var buffer = new CircularBuffer<int>(capacity: 3);
