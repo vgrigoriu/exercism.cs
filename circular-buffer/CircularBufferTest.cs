@@ -29,7 +29,7 @@ public class CircularBufferTest
         Assert.Throws<InvalidOperationException>(() => buffer.Read());
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Items_are_read_in_the_order_they_are_written()
     {
         var buffer = new CircularBuffer<int>(capacity: 2);
