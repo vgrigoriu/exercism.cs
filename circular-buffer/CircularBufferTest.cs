@@ -78,7 +78,7 @@ public class CircularBufferTest
         Assert.Throws<InvalidOperationException>(() => buffer.Read());
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Clear_frees_up_capacity_for_another_write()
     {
         var buffer = new CircularBuffer<int>(capacity: 1);
