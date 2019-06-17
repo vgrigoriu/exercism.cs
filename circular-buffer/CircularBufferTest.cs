@@ -12,7 +12,7 @@ public class CircularBufferTest
         Assert.Throws<InvalidOperationException>(() => buffer.Read());
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Can_read_an_item_just_written()
     {
         var buffer = new CircularBuffer<int>(capacity: 1);

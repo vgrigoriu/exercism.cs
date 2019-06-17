@@ -21,12 +21,13 @@ public class CircularBuffer<T>
             throw new InvalidOperationException("Can't read from empty buffer");
         }
 
-        return default;
+        return buffer[begin];
     }
 
     public void Write(T value)
     {
-        throw new NotImplementedException("You need to implement this function.");
+        buffer[(begin + length) % buffer.Length] = value;
+        length += 1;
     }
 
     public void Overwrite(T value)
