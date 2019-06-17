@@ -7,6 +7,7 @@ public class CircularBuffer<T>
     // the index of the first element in the buffer
     private int begin = 0;
 
+    // number of elements currently in the buffer
     private int length = 0;
 
     public CircularBuffer(int capacity)
@@ -46,6 +47,7 @@ public class CircularBuffer<T>
         Write(value);
     }
 
+    // It's not clear if Clear should clear all elements or just one.
     public void Clear()
     {
         if (length == 0)
