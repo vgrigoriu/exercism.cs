@@ -4,7 +4,7 @@ public static class RotationalCipher
 {
     public static string Rotate(string text, int shiftKey)
     {
-        StringBuilder sb = new StringBuilder();
+        var sb = new StringBuilder();
         foreach (var ch in text)
         {
             sb.Append(Rotate(ch, shiftKey));
@@ -19,12 +19,13 @@ public static class RotationalCipher
         {
             return (char)('a' + (ch - 'a' + shiftKey) % 26);
         }
-
-        if ('A' <= ch && ch <= 'Z')
+        else if ('A' <= ch && ch <= 'Z')
         {
             return (char)('A' + (ch - 'A' + shiftKey) % 26);
         }
-
-        return ch;
+        else
+        {
+            return ch;
+        }
     }
 }
