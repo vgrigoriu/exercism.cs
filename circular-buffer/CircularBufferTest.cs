@@ -107,7 +107,7 @@ public class CircularBufferTest
         Assert.Equal(2, buffer.Read());
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Overwrite_replaces_the_oldest_item_on_full_buffer()
     {
         var buffer = new CircularBuffer<int>(capacity: 2);

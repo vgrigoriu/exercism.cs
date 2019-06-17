@@ -39,6 +39,10 @@ public class CircularBuffer<T>
 
     public void Overwrite(T value)
     {
+        if (length == buffer.Length)
+        {
+            Clear();
+        }
         Write(value);
     }
 
