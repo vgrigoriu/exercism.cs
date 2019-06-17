@@ -20,7 +20,7 @@ public class CircularBufferTest
         Assert.Equal(1, buffer.Read());
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Each_item_may_only_be_read_once()
     {
         var buffer = new CircularBuffer<int>(capacity: 1);

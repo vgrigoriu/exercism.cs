@@ -21,7 +21,10 @@ public class CircularBuffer<T>
             throw new InvalidOperationException("Can't read from empty buffer");
         }
 
-        return buffer[begin];
+        var value = buffer[begin];
+        begin += 1;
+        length -= 1;
+        return value;
     }
 
     public void Write(T value)
