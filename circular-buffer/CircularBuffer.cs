@@ -22,8 +22,7 @@ public class CircularBuffer<T>
         }
 
         var value = buffer[begin];
-        begin = (begin + 1) % buffer.Length;
-        length -= 1;
+        Clear();
         return value;
     }
 
@@ -45,6 +44,7 @@ public class CircularBuffer<T>
 
     public void Clear()
     {
-        throw new NotImplementedException("You need to implement this function.");
+        begin = (begin + 1) % buffer.Length;
+        length -= 1;
     }
 }

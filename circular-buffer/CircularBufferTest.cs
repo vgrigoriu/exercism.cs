@@ -69,7 +69,7 @@ public class CircularBufferTest
         Assert.Equal(3, buffer.Read());
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Items_cleared_out_of_buffer_cant_be_read()
     {
         var buffer = new CircularBuffer<int>(capacity: 1);
