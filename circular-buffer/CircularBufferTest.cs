@@ -88,7 +88,7 @@ public class CircularBufferTest
         Assert.Equal(2, buffer.Read());
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Clear_does_nothing_on_empty_buffer()
     {
         var buffer = new CircularBuffer<int>(capacity: 1);

@@ -44,6 +44,11 @@ public class CircularBuffer<T>
 
     public void Clear()
     {
+        if (length == 0)
+        {
+            return;
+        }
+
         begin = (begin + 1) % buffer.Length;
         length -= 1;
     }
