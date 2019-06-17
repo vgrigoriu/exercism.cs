@@ -22,7 +22,7 @@ public class CircularBuffer<T>
         }
 
         var value = buffer[begin];
-        begin += 1;
+        begin = (begin + 1) % buffer.Length;
         length -= 1;
         return value;
     }
