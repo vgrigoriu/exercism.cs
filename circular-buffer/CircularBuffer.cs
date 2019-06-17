@@ -29,6 +29,11 @@ public class CircularBuffer<T>
 
     public void Write(T value)
     {
+        if (length == buffer.Length)
+        {
+            throw new InvalidOperationException("Can't write to full buffer");
+        }
+
         buffer[(begin + length) % buffer.Length] = value;
         length += 1;
     }

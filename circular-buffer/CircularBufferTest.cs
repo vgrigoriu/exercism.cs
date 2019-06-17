@@ -39,7 +39,7 @@ public class CircularBufferTest
         Assert.Equal(2, buffer.Read());
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Full_buffer_cant_be_written_to()
     {
         var buffer = new CircularBuffer<int>(capacity: 1);
