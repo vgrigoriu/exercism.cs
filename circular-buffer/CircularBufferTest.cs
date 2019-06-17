@@ -97,7 +97,7 @@ public class CircularBufferTest
         Assert.Equal(1, buffer.Read());
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Overwrite_acts_like_write_on_non_full_buffer()
     {
         var buffer = new CircularBuffer<int>(capacity: 2);
