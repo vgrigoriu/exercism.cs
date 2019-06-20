@@ -2,11 +2,13 @@ using System;
 
 public struct Clock
 {
+    private const int MinutesInDay = 24 * 60;
+
     private readonly int minutes;
 
     public Clock(int hours, int minutes)
     {
-        this.minutes = hours * 60 + minutes;
+        this.minutes = Normalize(hours * 60 + minutes);
     }
 
     public int Hours => minutes / 60;
@@ -24,4 +26,9 @@ public struct Clock
     }
 
     public override string ToString() => $"{Hours:D2}:{Minutes:D2}";
+
+    private static int Normalize(int totalMinutes)
+    {
+        return totalMinutes % MinutesInDay;
+    }
 }
