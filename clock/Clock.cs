@@ -15,10 +15,7 @@ public struct Clock
 
     public int Minutes => minutes % 60;
 
-    public Clock Add(int minutesToAdd)
-    {
-        throw new NotImplementedException("You need to implement this function.");
-    }
+    public Clock Add(int minutesToAdd) => new Clock(Hours, Minutes + minutesToAdd);
 
     public Clock Subtract(int minutesToSubtract)
     {
