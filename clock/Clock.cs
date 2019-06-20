@@ -2,7 +2,7 @@ public struct Clock
 {
     private const int MinutesInDay = 24 * 60;
 
-    private readonly int minutes;
+    private readonly int totalMinutes;
 
     public Clock(int hours, int minutes) : this(hours * 60 + minutes)
     {
@@ -10,16 +10,16 @@ public struct Clock
 
     private Clock(int totalMinutes)
     {
-        this.minutes = Normalize(totalMinutes);
+        this.totalMinutes = Normalize(totalMinutes);
     }
 
-    public int Hours => minutes / 60;
+    public int Hours => totalMinutes / 60;
 
-    public int Minutes => minutes % 60;
+    public int Minutes => totalMinutes % 60;
 
-    public Clock Add(int minutesToAdd) => new Clock(minutes + minutesToAdd);
+    public Clock Add(int minutesToAdd) => new Clock(totalMinutes + minutesToAdd);
 
-    public Clock Subtract(int minutesToSubtract) => new Clock(minutes - minutesToSubtract);
+    public Clock Subtract(int minutesToSubtract) => new Clock(totalMinutes - minutesToSubtract);
 
     public override string ToString() => $"{Hours:D2}:{Minutes:D2}";
 
