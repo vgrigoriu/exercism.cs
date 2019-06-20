@@ -17,10 +17,7 @@ public struct Clock
 
     public Clock Add(int minutesToAdd) => new Clock(Hours, Minutes + minutesToAdd);
 
-    public Clock Subtract(int minutesToSubtract)
-    {
-        throw new NotImplementedException("You need to implement this function.");
-    }
+    public Clock Subtract(int minutesToSubtract) => new Clock(Hours, Minutes - minutesToSubtract);
 
     public override string ToString() => $"{Hours:D2}:{Minutes:D2}";
 
