@@ -5,7 +5,7 @@ public class CircularBuffer<T>
     private readonly T[] buffer;
 
     // the index of the first element in the buffer
-    private int begin = 0;
+    private int startIndex = 0;
 
     // number of elements currently in the buffer
     private int length = 0;
@@ -22,7 +22,7 @@ public class CircularBuffer<T>
             throw new InvalidOperationException("Can't read from empty buffer");
         }
 
-        var value = buffer[begin];
+        var value = buffer[startIndex];
         Clear();
         return value;
     }
@@ -34,7 +34,7 @@ public class CircularBuffer<T>
             throw new InvalidOperationException("Can't write to full buffer");
         }
 
-        buffer[(begin + length) % buffer.Length] = value;
+        buffer[(startIndex + length) % buffer.Length] = value;
         length += 1;
     }
 
@@ -55,7 +55,7 @@ public class CircularBuffer<T>
             return;
         }
 
-        begin = (begin + 1) % buffer.Length;
+        startIndex = (startIndex + 1) % buffer.Length;
         length -= 1;
     }
 }
