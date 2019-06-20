@@ -29,6 +29,12 @@ public struct Clock
 
     private static int Normalize(int totalMinutes)
     {
-        return totalMinutes % MinutesInDay;
+        var minutes = totalMinutes % MinutesInDay;
+        if (minutes < 0)
+        {
+            minutes += MinutesInDay;
+        }
+
+        return minutes;
     }
 }
