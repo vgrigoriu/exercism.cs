@@ -4,7 +4,8 @@ public struct Clock
 
     private readonly int totalMinutes;
 
-    public Clock(int hours, int minutes) : this(hours * 60 + minutes)
+    public Clock(int hours, int minutes)
+        : this(hours * 60 + minutes)
     {
     }
 
@@ -17,9 +18,11 @@ public struct Clock
 
     public int Minutes => totalMinutes % 60;
 
-    public Clock Add(int minutesToAdd) => new Clock(totalMinutes + minutesToAdd);
+    public Clock Add(int minutesToAdd) =>
+        new Clock(totalMinutes + minutesToAdd);
 
-    public Clock Subtract(int minutesToSubtract) => new Clock(totalMinutes - minutesToSubtract);
+    public Clock Subtract(int minutesToSubtract) =>
+        new Clock(totalMinutes - minutesToSubtract);
 
     public override string ToString() => $"{Hours:D2}:{Minutes:D2}";
 
