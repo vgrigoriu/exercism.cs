@@ -58,13 +58,13 @@ public class BobTest
         Assert.Equal("Calm down, I know what I'm doing!", Bob.Response("WHAT THE HELL WERE YOU THINKING?"));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Shouting_numbers()
     {
         Assert.Equal("Whoa, chill out!", Bob.Response("1, 2, 3 GO!"));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void No_letters()
     {
         Assert.Equal("Whatever.", Bob.Response("1, 2, 3"));

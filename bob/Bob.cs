@@ -24,9 +24,8 @@ public static class Bob
 
     private static bool IsYelling(this string statement)
     {
-        return statement
-            .Where(char.IsLetter)
-            .All(char.IsUpper);
+        var letters = statement.Where(char.IsLetter);
+        return letters.Any() && letters.All(char.IsUpper);
     }
 
     private static bool IsQuestion(this string statement)
