@@ -118,37 +118,37 @@ public class BobTest
         Assert.Equal("Fine. Be that way!", Bob.Response("          "));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Alternate_silence()
     {
         Assert.Equal("Fine. Be that way!", Bob.Response("\t\t\t\t\t\t\t\t\t\t"));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Multiple_line_question()
     {
         Assert.Equal("Whatever.", Bob.Response("\nDoes this cryogenic chamber make me look fat?\nNo."));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Starting_with_whitespace()
     {
         Assert.Equal("Whatever.", Bob.Response("         hmmmmmmm..."));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Ending_with_whitespace()
     {
         Assert.Equal("Sure.", Bob.Response("Okay if like my  spacebar  quite a bit?   "));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Other_whitespace()
     {
         Assert.Equal("Fine. Be that way!", Bob.Response("\n\r \t"));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Non_question_ending_with_whitespace()
     {
         Assert.Equal("Whatever.", Bob.Response("This is a statement ending with whitespace      "));
