@@ -2,8 +2,9 @@ using System.Linq;
 
 public static class Bob
 {
-    public static string Response(string statement)
+    public static string Response(string rawStatement)
     {
+        var statement = rawStatement.Cleanup();
         if (statement.IsSilence())
         {
             return "Fine. Be that way!";
@@ -40,5 +41,10 @@ public static class Bob
     private static bool IsQuestion(this string statement)
     {
         return statement.EndsWith('?');
+    }
+
+    private static string Cleanup(this string statement)
+    {
+        return statement.Trim();
     }
 }
