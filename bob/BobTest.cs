@@ -16,13 +16,13 @@ public class BobTest
         Assert.Equal("Whoa, chill out!", Bob.Response("WATCH OUT!"));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Shouting_gibberish()
     {
         Assert.Equal("Whoa, chill out!", Bob.Response("FCECDFCAAB"));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Asking_a_question()
     {
         Assert.Equal("Sure.", Bob.Response("Does this cryogenic chamber make me look fat?"));

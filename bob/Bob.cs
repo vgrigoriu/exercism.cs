@@ -8,6 +8,10 @@ public static class Bob
         {
             return "Whoa, chill out!";
         }
+        else if (statement.IsQuestion())
+        {
+            return "Sure.";
+        }
         else
         {
             return "Whatever.";
@@ -19,5 +23,10 @@ public static class Bob
         return statement
             .Where(char.IsLetter)
             .All(char.IsUpper);
+    }
+
+    private static bool IsQuestion(this string statement)
+    {
+        return statement.EndsWith('?');
     }
 }
