@@ -4,20 +4,20 @@ public static class Bob
 {
     public static string Response(string rawStatement)
     {
-        var statement = rawStatement.Cleanup();
-        if (statement.IsSilence())
+        var statement = CleanUp(rawStatement);
+        if (IsSilence(statement))
         {
             return "Fine. Be that way!";
         }
-        else if (statement.IsYelling() && statement.IsQuestion())
+        else if (IsYelling(statement) && IsQuestion(statement))
         {
             return "Calm down, I know what I'm doing!";
         }
-        else if (statement.IsYelling())
+        else if (IsYelling(statement))
         {
             return "Whoa, chill out!";
         }
-        else if (statement.IsQuestion())
+        else if (IsQuestion(statement))
         {
             return "Sure.";
         }
@@ -27,18 +27,18 @@ public static class Bob
         }
     }
 
-    private static bool IsSilence(this string statement) =>
+    private static bool IsSilence(string statement) =>
         statement == string.Empty;
 
-    private static bool IsYelling(this string statement)
+    private static bool IsYelling(string statement)
     {
         var letters = statement.Where(char.IsLetter);
         return letters.Any() && letters.All(char.IsUpper);
     }
 
-    private static bool IsQuestion(this string statement) =>
+    private static bool IsQuestion(string statement) =>
         statement.EndsWith('?');
 
-    private static string Cleanup(this string statement) =>
+    private static string CleanUp(string statement) =>
         statement.Trim();
 }
