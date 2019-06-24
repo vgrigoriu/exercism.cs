@@ -28,31 +28,31 @@ public class BobTest
         Assert.Equal("Sure.", Bob.Response("Does this cryogenic chamber make me look fat?"));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Asking_a_numeric_question()
     {
         Assert.Equal("Sure.", Bob.Response("You are, what, like 15?"));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Asking_gibberish()
     {
         Assert.Equal("Sure.", Bob.Response("fffbbcbeab?"));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Talking_forcefully()
     {
         Assert.Equal("Whatever.", Bob.Response("Let's go make out behind the gym!"));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Using_acronyms_in_regular_speech()
     {
         Assert.Equal("Whatever.", Bob.Response("It's OK if you don't want to go to the DMV."));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Forceful_question()
     {
         Assert.Equal("Calm down, I know what I'm doing!", Bob.Response("WHAT THE HELL WERE YOU THINKING?"));

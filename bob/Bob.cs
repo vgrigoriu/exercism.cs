@@ -4,7 +4,11 @@ public static class Bob
 {
     public static string Response(string statement)
     {
-        if (statement.IsYelling())
+        if (statement.IsYelling() && statement.IsQuestion())
+        {
+            return "Calm down, I know what I'm doing!";
+        }
+        else if (statement.IsYelling())
         {
             return "Whoa, chill out!";
         }
