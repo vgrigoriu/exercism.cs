@@ -37,18 +37,12 @@ public static class MatchingBrackets
         return openBrackets.Count == 0;
     }
 
-    private static bool IsOpen(char bracket)
-    {
-        return brackets.Keys.Contains(bracket);
-    }
+    private static bool IsOpen(char ch) => brackets.Keys.Contains(ch);
+
+    private static bool IsClose(char ch) => brackets.Values.Contains(ch);
 
     private static bool AreMatch(char openBracket, char closeBracket)
     {
         return IsOpen(openBracket) && brackets[openBracket] == closeBracket;
-    }
-
-    private static bool IsClose(char bracket)
-    {
-        return brackets.Values.Contains(bracket);
     }
 }
