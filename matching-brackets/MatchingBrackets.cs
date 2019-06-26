@@ -5,6 +5,7 @@ public static class MatchingBrackets
 {
     private static readonly Dictionary<char, char> brackets
         = new Dictionary<char, char> {
+            ['('] = ')',
             ['['] = ']',
             ['{'] = '}'
         };

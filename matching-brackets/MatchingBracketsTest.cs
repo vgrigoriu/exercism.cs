@@ -39,42 +39,42 @@ public class MatchingBracketsTest
         Assert.False(MatchingBrackets.IsPaired(value));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Paired_with_whitespace()
     {
         var value = "{ }";
         Assert.True(MatchingBrackets.IsPaired(value));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Partially_paired_brackets()
     {
         var value = "{[])";
         Assert.False(MatchingBrackets.IsPaired(value));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Simple_nested_brackets()
     {
         var value = "{[]}";
         Assert.True(MatchingBrackets.IsPaired(value));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Several_paired_brackets()
     {
         var value = "{}[]";
         Assert.True(MatchingBrackets.IsPaired(value));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Paired_and_nested_brackets()
     {
         var value = "([{}({}[])])";
         Assert.True(MatchingBrackets.IsPaired(value));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Unopened_closing_brackets()
     {
         var value = "{[)][]}";
