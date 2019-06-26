@@ -1,34 +1,53 @@
+using System.Collections.Generic;
+using System.Linq;
+
 public static class MatchingBrackets
 {
+    private static readonly Dictionary<char, char> brackets
+        = new Dictionary<char, char> {
+            ['['] = ']',
+            ['{'] = '}'
+        };
+
     public static bool IsPaired(string input)
     {
-        var openBrackets = 0;
+        var openBrackets = new Stack<char>();
         foreach (var bracket in input)
         {
             if (IsOpen(bracket))
             {
-                openBrackets += 1;
+                openBrackets.Push(bracket);
             }
             else if (IsClose(bracket))
             {
-                openBrackets -= 1;
-            }
-            if (openBrackets < 0)
-            {
-                return false;
+                if (!openBrackets.TryPop(out var openBracket))
+                {
+                    // closing bracket with no corresponding opening
+                    return false;
+                }
+                if (!AreMatch(openBracket, bracket))
+                {
+                    // mismatch
+                    return false;
+                }
             }
         }
 
-        return openBrackets == 0;
+        return openBrackets.Count == 0;
     }
 
     private static bool IsOpen(char bracket)
     {
-        return bracket == '[' || bracket == '{';
+        return brackets.Keys.Contains(bracket);
+    }
+
+    private static bool AreMatch(char openBracket, char closeBracket)
+    {
+        return IsOpen(openBracket) && brackets[openBracket] == closeBracket;
     }
 
     private static bool IsClose(char bracket)
     {
-        return bracket == ']' || bracket == '}';
+        return brackets.Values.Contains(bracket);
     }
 }
