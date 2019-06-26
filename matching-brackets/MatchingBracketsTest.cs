@@ -25,7 +25,7 @@ public class MatchingBracketsTest
         Assert.False(MatchingBrackets.IsPaired(value));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Wrong_ordered_brackets()
     {
         var value = "}{";

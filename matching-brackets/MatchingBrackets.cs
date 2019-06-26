@@ -13,6 +13,10 @@ public static class MatchingBrackets
             {
                 openBrackets -= 1;
             }
+            if (openBrackets < 0)
+            {
+                return false;
+            }
         }
 
         return openBrackets == 0;
@@ -20,11 +24,11 @@ public static class MatchingBrackets
 
     private static bool IsOpen(char bracket)
     {
-        return bracket == '[';
+        return bracket == '[' || bracket == '{';
     }
 
     private static bool IsClose(char bracket)
     {
-        return bracket == ']';
+        return bracket == ']' || bracket == '}';
     }
 }
