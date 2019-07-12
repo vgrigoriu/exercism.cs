@@ -31,7 +31,7 @@ public class SpiralMatrixTest
         Assert.Equal(expected, SpiralMatrix.GetMatrix(2));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Spiral_of_size_3()
     {
         var expected = new[,]
