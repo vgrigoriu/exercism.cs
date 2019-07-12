@@ -4,6 +4,13 @@ public class SpiralMatrix
 {
     public static int[,] GetMatrix(int size)
     {
-        return new int[0, 0];
+        var matrix = new int[size, size];
+        for (var col = 0; col < size; col++) {
+            for (var row = 0; row < size; row++) {
+                matrix[row, col] = 1;
+            }
+        }
+
+        return matrix;
     }
 }
