@@ -6,7 +6,6 @@ public class SpiralMatrix
     {
         var matrix = new int[size, size];
         Fill(matrix, size, 0, 0, 1);
-
         return matrix;
     }
 
@@ -23,11 +22,12 @@ public class SpiralMatrix
         var lastCol = firstCol + squareLength - 1;
         var lastRow = firstRow + squareLength - 1;
         var value = startValue;
-        for (var col = firstCol; col < lastCol; col++) {
+
+        for (var col = firstCol; col < lastCol; col += 1) {
             matrix[firstRow, col] = value;
             value += 1;
         }
-        for (var row = firstRow; row < lastRow; row++) {
+        for (var row = firstRow; row < lastRow; row += 1) {
             matrix[row, lastCol] = value;
             value += 1;
         }
