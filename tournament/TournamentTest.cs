@@ -59,7 +59,7 @@ public class TournamentTest
         Assert.Equal(expected, RunTally(rows));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void There_can_be_more_than_one_match()
     {
         var rows = 
@@ -72,7 +72,7 @@ public class TournamentTest
         Assert.Equal(expected, RunTally(rows));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void There_can_be_more_than_one_winner()
     {
         var rows = 
@@ -85,7 +85,7 @@ public class TournamentTest
         Assert.Equal(expected, RunTally(rows));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void There_can_be_more_than_two_teams()
     {
         var rows = 
@@ -100,7 +100,7 @@ public class TournamentTest
         Assert.Equal(expected, RunTally(rows));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Typical_input()
     {
         var rows = 
@@ -119,7 +119,7 @@ public class TournamentTest
         Assert.Equal(expected, RunTally(rows));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Incomplete_competition_not_all_pairs_have_played_()
     {
         var rows = 
@@ -136,7 +136,7 @@ public class TournamentTest
         Assert.Equal(expected, RunTally(rows));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Ties_broken_alphabetically()
     {
         var rows = 
