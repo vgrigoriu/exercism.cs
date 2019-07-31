@@ -37,7 +37,7 @@ public class TournamentTest
         Assert.Equal(expected, RunTally(rows));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void A_different_team_can_win()
     {
         var rows = "Blithering Badgers;Allegoric Alaskans;win";
