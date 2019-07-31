@@ -73,8 +73,8 @@ public class Teams
                 Team(match.Loser).AddLoss();
                 break;
             case Result.Draw:
-                Team(match.Team1).AddDraw();
-                Team(match.Team2).AddDraw();
+                Team(match.HomeTeam).AddDraw();
+                Team(match.AwayTeam).AddDraw();
                 break;
         }
     }
@@ -83,7 +83,9 @@ public class Teams
     {
         get
         {
-            return teams.Values.OrderByDescending(t => t.Points).ThenBy(t => t.Name);
+            return teams.Values
+                .OrderByDescending(t => t.Points)
+                .ThenBy(t => t.Name);
         }
     }
 
@@ -123,35 +125,37 @@ public class Match
                     throw new ArgumentException($"Invalid result: {result}");
             }
         }
+
         var parts = line.Split(";");
         if (parts.Length != 3)
         {
             throw new ArgumentException($"Not a valid input line: {line}");
         }
+
         return new Match(parts[0], parts[1], ParseResult(parts[2]));
     }
 
-    private Match(string team1, string team2, Result result)
+    private Match(string homeTeam, string awayTeam, Result result)
     {
-        if (team1 is null)
+        if (homeTeam is null)
         {
-            throw new ArgumentNullException(nameof(team1));
+            throw new ArgumentNullException(nameof(homeTeam));
         }
 
-        if (team2 is null)
+        if (awayTeam is null)
         {
-            throw new ArgumentNullException(nameof(team2));
+            throw new ArgumentNullException(nameof(awayTeam));
         }
 
-        Team1 = team1;
-        Team2 = team2;
+        HomeTeam = homeTeam;
+        AwayTeam = awayTeam;
         Result = result;
     }
 
-    public string Team1 { get; }
-    public string Team2 { get; }
+    public string HomeTeam { get; }
+    public string AwayTeam { get; }
     public Result Result { get; }
 
-    public string Winner => Result == Result.Win ? Team1 : Team2;
-    public string Loser => Result == Result.Win ? Team2 : Team1;
+    public string Winner => Result == Result.Win ? HomeTeam : AwayTeam;
+    public string Loser => Result == Result.Win ? AwayTeam : HomeTeam;
 }
