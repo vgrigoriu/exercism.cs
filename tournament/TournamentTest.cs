@@ -48,7 +48,7 @@ public class TournamentTest
         Assert.Equal(expected, RunTally(rows));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void A_draw_is_one_point_each()
     {
         var rows = "Allegoric Alaskans;Blithering Badgers;draw";
