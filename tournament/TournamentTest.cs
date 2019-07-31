@@ -15,7 +15,7 @@ public class TournamentTest
         Assert.Equal(expected, RunTally(rows));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void A_win_is_three_points_a_loss_is_zero_points()
     {
         var rows = "Allegoric Alaskans;Blithering Badgers;win";
