@@ -26,7 +26,7 @@ public class TournamentTest
         Assert.Equal(expected, RunTally(rows));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void A_win_can_also_be_expressed_as_a_loss()
     {
         var rows = "Blithering Badgers;Allegoric Alaskans;loss";

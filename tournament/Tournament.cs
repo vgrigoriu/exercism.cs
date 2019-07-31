@@ -16,9 +16,9 @@ public static class Tournament
             {
                 var match = Match.Parse(input);
                 writer.WriteLine();
-                writer.Write(match.Team1 + "             |  1 |  1 |  0 |  0 |  3");
+                writer.Write(match.Winner + "             |  1 |  1 |  0 |  0 |  3");
                 writer.WriteLine();
-                writer.Write(match.Team2 + "             |  1 |  0 |  0 |  1 |  0");
+                writer.Write(match.Loser + "             |  1 |  0 |  0 |  1 |  0");
             }
         }
     }
@@ -74,4 +74,7 @@ public class Match
     public string Team1 { get; }
     public string Team2 { get; }
     public Result Result { get; }
+
+    public string Winner => Result == Result.Win ? Team1 : Team2;
+    public string Loser => Result == Result.Win ? Team2 : Team1;
 }
