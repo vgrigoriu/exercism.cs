@@ -5,6 +5,9 @@ public static class Tournament
 {   
     public static void Tally(Stream inStream, Stream outStream)
     {
-        throw new NotImplementedException("You need to implement this function.");    
+        using (var writer = new StreamWriter(outStream))
+        {
+            writer.Write("Team                           | MP |  W |  D |  L |  P");
+        }
     }
 }
