@@ -109,7 +109,7 @@ public class VariableLengthQuantityTest
         Assert.Equal(expected, VariableLengthQuantity.Encode(integers));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Arbitrary_quintuple_byte()
     {
         var integers = new[] { 0xFF000000u };
