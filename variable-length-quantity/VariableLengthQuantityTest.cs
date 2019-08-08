@@ -61,7 +61,7 @@ public class VariableLengthQuantityTest
         Assert.Equal(expected, VariableLengthQuantity.Encode(integers));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Arbitrary_triple_byte()
     {
         var integers = new[] { 0x100000u };
