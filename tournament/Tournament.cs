@@ -34,12 +34,7 @@ public class Team
     private int losses;
     public Team(string name)
     {
-        if (name is null)
-        {
-            throw new ArgumentNullException(nameof(name));
-        }
-
-        Name = name;
+        Name = name ?? throw new ArgumentNullException(nameof(name));
     }
 
     public string Name { get; }
@@ -137,18 +132,8 @@ public class Match
 
     private Match(string homeTeam, string awayTeam, Result result)
     {
-        if (homeTeam is null)
-        {
-            throw new ArgumentNullException(nameof(homeTeam));
-        }
-
-        if (awayTeam is null)
-        {
-            throw new ArgumentNullException(nameof(awayTeam));
-        }
-
-        HomeTeam = homeTeam;
-        AwayTeam = awayTeam;
+        HomeTeam = homeTeam ?? throw new ArgumentNullException(nameof(homeTeam));
+        AwayTeam = awayTeam ?? throw new ArgumentNullException(nameof(awayTeam));
         Result = result;
     }
 
