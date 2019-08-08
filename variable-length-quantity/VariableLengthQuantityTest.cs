@@ -93,7 +93,7 @@ public class VariableLengthQuantityTest
         Assert.Equal(expected, VariableLengthQuantity.Encode(integers));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Largest_quadruple_byte()
     {
         var integers = new[] { 0xFFFFFFFu };
@@ -101,7 +101,7 @@ public class VariableLengthQuantityTest
         Assert.Equal(expected, VariableLengthQuantity.Encode(integers));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Smallest_quintuple_byte()
     {
         var integers = new[] { 0x10000000u };
