@@ -125,7 +125,7 @@ public class VariableLengthQuantityTest
         Assert.Equal(expected, VariableLengthQuantity.Encode(integers));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Two_single_byte_values()
     {
         var integers = new[] { 0x40u, 0x7Fu };
