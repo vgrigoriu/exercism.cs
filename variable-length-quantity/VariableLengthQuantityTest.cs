@@ -117,7 +117,7 @@ public class VariableLengthQuantityTest
         Assert.Equal(expected, VariableLengthQuantity.Encode(integers));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Maximum_32_bit_integer_input()
     {
         var integers = new[] { 0xFFFFFFFFu };
