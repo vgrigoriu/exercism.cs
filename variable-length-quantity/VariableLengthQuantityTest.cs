@@ -69,7 +69,7 @@ public class VariableLengthQuantityTest
         Assert.Equal(expected, VariableLengthQuantity.Encode(integers));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Largest_triple_byte()
     {
         var integers = new[] { 0x1FFFFFu };
