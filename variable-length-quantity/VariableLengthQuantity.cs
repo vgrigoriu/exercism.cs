@@ -17,7 +17,6 @@ public static class VariableLengthQuantity
             var first = true;
             while (n > 0)
             {
-                // get last 7 bits
                 var octet = n & 0x7F;
                 if (first)
                 {
