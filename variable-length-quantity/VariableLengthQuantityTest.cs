@@ -133,7 +133,7 @@ public class VariableLengthQuantityTest
         Assert.Equal(expected, VariableLengthQuantity.Encode(integers));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Two_multi_byte_values()
     {
         var integers = new[] { 0x4000u, 0x123456u };
