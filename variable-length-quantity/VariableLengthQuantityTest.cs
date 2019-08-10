@@ -165,7 +165,7 @@ public class VariableLengthQuantityTest
         Assert.Equal(expected, VariableLengthQuantity.Decode(integers));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Three_bytes()
     {
         var integers = new[] { 0xFFu, 0xFFu, 0x7Fu };
@@ -173,7 +173,7 @@ public class VariableLengthQuantityTest
         Assert.Equal(expected, VariableLengthQuantity.Decode(integers));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Four_bytes()
     {
         var integers = new[] { 0x81u, 0x80u, 0x80u, 0x0u };
@@ -181,7 +181,7 @@ public class VariableLengthQuantityTest
         Assert.Equal(expected, VariableLengthQuantity.Decode(integers));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Maximum_32_bit_integer()
     {
         var integers = new[] { 0x8Fu, 0xFFu, 0xFFu, 0xFFu, 0x7Fu };
@@ -189,7 +189,7 @@ public class VariableLengthQuantityTest
         Assert.Equal(expected, VariableLengthQuantity.Decode(integers));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Incomplete_sequence_causes_error()
     {
         var integers = new[] { 0xFFu };

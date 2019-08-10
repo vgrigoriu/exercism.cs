@@ -48,6 +48,10 @@ public static class VariableLengthQuantity
             }
         }
 
+        if (number != 0)
+        {
+            throw new InvalidOperationException("Last byte had 8th bit set");
+        }
         return numbers.ToArray();
     }
 
