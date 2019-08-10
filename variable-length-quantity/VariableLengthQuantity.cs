@@ -18,17 +18,16 @@ public static class VariableLengthQuantity
             while (n > 0)
             {
                 var octet = n & 0x7F;
-                if (first)
-                {
-                    first = false;
-                }
-                else
+                if (!first)
                 {
                     octet |= 0x80;
                 }
+
                 octets.Add(octet);
                 n = n >> 7;
+                first = false;
             }
+
             octets.Reverse();
             return octets;
         }).ToArray();
@@ -56,10 +55,5 @@ public static class VariableLengthQuantity
             throw new InvalidOperationException("Last byte had 8th bit set");
         }
         return numbers.ToArray();
-    }
-
-    public static int rightmostSetBit(int n)
-    {
-        return (int)((Math.Log10(n & -n)) / Math.Log10(2)) + 1;
     }
 }
