@@ -36,7 +36,19 @@ public static class VariableLengthQuantity
 
     public static uint[] Decode(uint[] bytes)
     {
-        return bytes;
+        var numbers = new List<uint>();
+        uint number = 0;
+        foreach (var octet in bytes)
+        {
+            number = (number << 7) | (octet & 0x7F);
+            if ((octet & 0x80) == 0)
+            {
+                numbers.Add(number);
+                number = 0;
+            }
+        }
+
+        return numbers.ToArray();
     }
 
     public static int rightmostSetBit(int n)

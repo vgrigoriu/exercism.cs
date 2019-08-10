@@ -157,7 +157,7 @@ public class VariableLengthQuantityTest
         Assert.Equal(expected, VariableLengthQuantity.Decode(integers));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Two_bytes()
     {
         var integers = new[] { 0xC0u, 0x0u };
