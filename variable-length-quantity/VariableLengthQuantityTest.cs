@@ -203,7 +203,7 @@ public class VariableLengthQuantityTest
         Assert.Throws<InvalidOperationException>(() => VariableLengthQuantity.Decode(integers));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Multiple_values()
     {
         var integers = new[] { 0xC0u, 0x0u, 0xC8u, 0xE8u, 0x56u, 0xFFu, 0xFFu, 0xFFu, 0x7Fu, 0x0u, 0xFFu, 0x7Fu, 0x81u, 0x80u, 0x0u };
