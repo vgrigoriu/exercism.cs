@@ -36,7 +36,7 @@ public static class VariableLengthQuantity
 
     public static uint[] Decode(uint[] bytes)
     {
-        throw new NotImplementedException("You need to implement this function.");
+        return bytes;
     }
 
     public static int rightmostSetBit(int n)

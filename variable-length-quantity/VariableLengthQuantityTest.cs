@@ -149,7 +149,7 @@ public class VariableLengthQuantityTest
         Assert.Equal(expected, VariableLengthQuantity.Encode(integers));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void One_byte()
     {
         var integers = new[] { 0x7Fu };
