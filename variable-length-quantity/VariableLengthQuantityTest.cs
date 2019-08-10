@@ -196,7 +196,7 @@ public class VariableLengthQuantityTest
         Assert.Throws<InvalidOperationException>(() => VariableLengthQuantity.Decode(integers));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Incomplete_sequence_causes_error_even_if_value_is_zero()
     {
         var integers = new[] { 0x80u };

@@ -38,17 +38,20 @@ public static class VariableLengthQuantity
     {
         var numbers = new List<uint>();
         uint number = 0;
+        // is an empty array a valid input?
+        bool hasBit8Set = true;
         foreach (var octet in bytes)
         {
             number = (number << 7) | (octet & 0x7F);
-            if ((octet & 0x80) == 0)
+            hasBit8Set = (octet & 0x80) != 0;
+            if (!hasBit8Set)
             {
                 numbers.Add(number);
                 number = 0;
             }
         }
 
-        if (number != 0)
+        if (hasBit8Set)
         {
             throw new InvalidOperationException("Last byte had 8th bit set");
         }
