@@ -13,17 +13,13 @@ public static class Dominoes
         }
 
         var firstDomino = dominoes.First();
-        Console.WriteLine($"First domino is {firstDomino}");
         var (found, chain) = FindChainStartingWith(firstDomino, dominoes.Skip(1));
 
-        Console.WriteLine($"Found chain {(found ? string.Join(", ", chain) : "null")}");
-        
         return found && IsValidChain(chain);
     }
 
     private static (bool, IEnumerable<(int, int)>) FindChainStartingWith((int, int) start, IEnumerable<(int,int)> candidates)
     {
-        Console.WriteLine($"Looking for a chain starting with {start} made from {string.Join(", ", candidates)}");
         if (candidates.Count() == 0)
         {
             return (true, new List<(int,int)> {start});
@@ -63,7 +59,6 @@ public static class Dominoes
         {
             if (domino.Item1 == except.Item1 && domino.Item2 == except.Item2 && !eliminated)
             {
-                Console.WriteLine("Found equal dominoes");
                 eliminated = true;
                 continue;
             }
