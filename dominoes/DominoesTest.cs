@@ -40,7 +40,7 @@ public class DominoesTest
         Assert.True(Dominoes.CanChain(dominoes));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Cant_be_chained()
     {
         var dominoes = new[] { (1, 2), (4, 1), (2, 3) };

@@ -16,7 +16,7 @@ public static class Dominoes
         Console.WriteLine($"First domino is {firstDomino}");
         var (found, chain) = FindChainStartingWith(firstDomino, dominoes.Skip(1));
 
-        Console.WriteLine($"Found chain ({found}): {string.Join(", ", chain)}");
+        Console.WriteLine($"Found chain {(found ? string.Join(", ", chain) : "null")}");
         
         return found && IsValidChain(chain);
     }
