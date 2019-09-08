@@ -33,7 +33,7 @@ public class DominoesTest
         Assert.True(Dominoes.CanChain(dominoes));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Can_reverse_dominoes()
     {
         var dominoes = new[] { (1, 2), (1, 3), (2, 3) };
