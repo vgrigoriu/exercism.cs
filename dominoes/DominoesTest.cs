@@ -54,7 +54,7 @@ public class DominoesTest
         Assert.False(Dominoes.CanChain(dominoes));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Disconnected_double_loop()
     {
         var dominoes = new[] { (1, 2), (2, 1), (3, 4), (4, 3) };
