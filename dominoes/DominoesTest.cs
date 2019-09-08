@@ -12,7 +12,7 @@ public class DominoesTest
         Assert.True(Dominoes.CanChain(dominoes));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Singleton_input_singleton_output()
     {
         var dominoes = new[] { (1, 1) };
