@@ -75,7 +75,7 @@ public class DominoesTest
         Assert.True(Dominoes.CanChain(dominoes));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Separate_loops()
     {
         var dominoes = new[] { (1, 2), (2, 3), (3, 1), (1, 1), (2, 2), (3, 3) };
