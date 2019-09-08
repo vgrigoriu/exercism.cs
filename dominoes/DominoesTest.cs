@@ -47,7 +47,7 @@ public class DominoesTest
         Assert.False(Dominoes.CanChain(dominoes));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Disconnected_simple()
     {
         var dominoes = new[] { (1, 1), (2, 2) };
