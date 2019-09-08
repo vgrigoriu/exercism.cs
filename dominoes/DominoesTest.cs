@@ -26,7 +26,7 @@ public class DominoesTest
         Assert.False(Dominoes.CanChain(dominoes));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Three_elements()
     {
         var dominoes = new[] { (1, 2), (3, 1), (2, 3) };
