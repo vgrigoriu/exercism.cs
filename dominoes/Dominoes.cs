@@ -30,22 +30,20 @@ public static class Dominoes
         {
             var domino = candidatesArray[i];
             var remainingCandidates = GetRemainingCandidates(candidatesArray, domino);
+            bool found = false;
+            IEnumerable<(int, int)> chain = Enumerable.Empty<(int, int)>();
             if (domino.Item1 == start.Item2)
             {
-                var (found, chain) = FindChainStartingWith(domino, remainingCandidates);
-                if (found)
-                {
-                    return (true, new List<(int,int)> {start}.Concat(chain));
-                }
+                (found, chain) = FindChainStartingWith(domino, remainingCandidates);
+            }
+            else if (domino.Item2 == start.Item2)
+            {
+                (found, chain) = FindChainStartingWith((domino.Item2, domino.Item1), remainingCandidates);
             }
 
-            if (domino.Item2 == start.Item2)
+            if (found)
             {
-                var (found, chain) = FindChainStartingWith((domino.Item2, domino.Item1), remainingCandidates);
-                if (found)
-                {
-                    return (true, new List<(int,int)> {start}.Concat(chain));
-                }
+                return (true, new List<(int,int)> {start}.Concat(chain));
             }
         }
 
