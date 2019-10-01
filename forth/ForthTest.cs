@@ -17,31 +17,31 @@ public class ForthTest
         Assert.Equal("3", Forth.Evaluate(new[] { "1 2 +" }));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Addition_errors_if_there_is_nothing_on_the_stack()
     {
         Assert.Throws<InvalidOperationException>(() => Forth.Evaluate(new[] { "+" }));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Addition_errors_if_there_is_only_one_value_on_the_stack()
     {
         Assert.Throws<InvalidOperationException>(() => Forth.Evaluate(new[] { "1 +" }));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Subtraction_can_subtract_two_numbers()
     {
         Assert.Equal("-1", Forth.Evaluate(new[] { "3 4 -" }));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Subtraction_errors_if_there_is_nothing_on_the_stack()
     {
         Assert.Throws<InvalidOperationException>(() => Forth.Evaluate(new[] { "-" }));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Subtraction_errors_if_there_is_only_one_value_on_the_stack()
     {
         Assert.Throws<InvalidOperationException>(() => Forth.Evaluate(new[] { "1 -" }));

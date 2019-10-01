@@ -39,5 +39,9 @@ public class Evaluator
         {
             stack.Push(stack.Pop() + stack.Pop());
         }
+        else if (word == "-")
+        {
+            stack.Push(- stack.Pop() + stack.Pop());
+        }
     }
 }
