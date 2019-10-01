@@ -11,7 +11,7 @@ public class ForthTest
         Assert.Equal("1 2 3 4 5", Forth.Evaluate(new[] { "1 2 3 4 5" }));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Addition_can_add_two_numbers()
     {
         Assert.Equal("3", Forth.Evaluate(new[] { "1 2 +" }));
