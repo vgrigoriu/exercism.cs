@@ -83,25 +83,25 @@ public class ForthTest
         Assert.Throws<InvalidOperationException>(() => Forth.Evaluate(new[] { "4 0 /" }));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Division_errors_if_there_is_nothing_on_the_stack()
     {
         Assert.Throws<InvalidOperationException>(() => Forth.Evaluate(new[] { "/" }));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Division_errors_if_there_is_only_one_value_on_the_stack()
     {
         Assert.Throws<InvalidOperationException>(() => Forth.Evaluate(new[] { "1 /" }));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Combined_arithmetic_addition_and_subtraction()
     {
         Assert.Equal("-1", Forth.Evaluate(new[] { "1 2 + 4 -" }));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Combined_arithmetic_multiplication_and_division()
     {
         Assert.Equal("2", Forth.Evaluate(new[] { "2 4 * 3 /" }));
