@@ -71,13 +71,13 @@ public class ForthTest
         Assert.Equal("4", Forth.Evaluate(new[] { "12 3 /" }));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Division_performs_integer_division()
     {
         Assert.Equal("2", Forth.Evaluate(new[] { "8 3 /" }));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Division_errors_if_dividing_by_zero()
     {
         Assert.Throws<InvalidOperationException>(() => Forth.Evaluate(new[] { "4 0 /" }));

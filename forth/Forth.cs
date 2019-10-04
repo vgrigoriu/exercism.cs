@@ -50,6 +50,10 @@ public class Evaluator
         else if (word == "/")
         {
             var denom = stack.Pop();
+            if (denom == 0)
+            {
+                throw new InvalidOperationException("Cannot divide by 0");
+            }
             var num = stack.Pop();
             stack.Push(num / denom);
         }
