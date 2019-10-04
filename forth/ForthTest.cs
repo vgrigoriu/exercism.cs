@@ -125,19 +125,19 @@ public class ForthTest
         Assert.Throws<InvalidOperationException>(() => Forth.Evaluate(new[] { "dup" }));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Drop_removes_the_top_value_on_the_stack_if_it_is_the_only_one()
     {
         Assert.Equal("", Forth.Evaluate(new[] { "1 drop" }));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Drop_removes_the_top_value_on_the_stack_if_it_is_not_the_only_one()
     {
         Assert.Equal("1", Forth.Evaluate(new[] { "1 2 drop" }));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Drop_errors_if_there_is_nothing_on_the_stack()
     {
         Assert.Throws<InvalidOperationException>(() => Forth.Evaluate(new[] { "drop" }));

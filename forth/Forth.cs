@@ -61,6 +61,10 @@ public class Evaluator
         {
             stack.Push(stack.Peek());
         }
+        else if (word == "drop")
+        {
+            stack.Pop();
+        }
         else
         {
             throw new InvalidOperationException($"Don't know how to handle {word}");
