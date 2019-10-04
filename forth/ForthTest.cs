@@ -107,7 +107,7 @@ public class ForthTest
         Assert.Equal("2", Forth.Evaluate(new[] { "2 4 * 3 /" }));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Dup_copies_a_value_on_the_stack()
     {
         Assert.Equal("1 1", Forth.Evaluate(new[] { "1 dup" }));

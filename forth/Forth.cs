@@ -57,6 +57,10 @@ public class Evaluator
             var num = stack.Pop();
             stack.Push(num / denom);
         }
+        else if (word == "dup")
+        {
+            stack.Push(stack.Peek());
+        }
         else
         {
             throw new InvalidOperationException($"Don't know how to handle {word}");
