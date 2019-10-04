@@ -65,6 +65,13 @@ public class Evaluator
         {
             stack.Pop();
         }
+        else if (word == "swap")
+        {
+            var n1 = stack.Pop();
+            var n2 = stack.Pop();
+            stack.Push(n1);
+            stack.Push(n2);
+        }
         else
         {
             throw new InvalidOperationException($"Don't know how to handle {word}");

@@ -143,25 +143,25 @@ public class ForthTest
         Assert.Throws<InvalidOperationException>(() => Forth.Evaluate(new[] { "drop" }));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Swap_swaps_the_top_two_values_on_the_stack_if_they_are_the_only_ones()
     {
         Assert.Equal("2 1", Forth.Evaluate(new[] { "1 2 swap" }));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Swap_swaps_the_top_two_values_on_the_stack_if_they_are_not_the_only_ones()
     {
         Assert.Equal("1 3 2", Forth.Evaluate(new[] { "1 2 3 swap" }));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Swap_errors_if_there_is_nothing_on_the_stack()
     {
         Assert.Throws<InvalidOperationException>(() => Forth.Evaluate(new[] { "swap" }));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Swap_errors_if_there_is_only_one_value_on_the_stack()
     {
         Assert.Throws<InvalidOperationException>(() => Forth.Evaluate(new[] { "1 swap" }));
