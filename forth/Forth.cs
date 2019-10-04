@@ -72,6 +72,13 @@ public class Evaluator
             stack.Push(n1);
             stack.Push(n2);
         }
+        else if (word == "over")
+        {
+            var n1 = stack.Pop();
+            var n2 = stack.Peek();
+            stack.Push(n1);
+            stack.Push(n2);
+        }
         else
         {
             throw new InvalidOperationException($"Don't know how to handle {word}");

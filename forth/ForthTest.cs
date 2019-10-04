@@ -167,25 +167,25 @@ public class ForthTest
         Assert.Throws<InvalidOperationException>(() => Forth.Evaluate(new[] { "1 swap" }));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Over_copies_the_second_element_if_there_are_only_two()
     {
         Assert.Equal("1 2 1", Forth.Evaluate(new[] { "1 2 over" }));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Over_copies_the_second_element_if_there_are_more_than_two()
     {
         Assert.Equal("1 2 3 2", Forth.Evaluate(new[] { "1 2 3 over" }));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Over_errors_if_there_is_nothing_on_the_stack()
     {
         Assert.Throws<InvalidOperationException>(() => Forth.Evaluate(new[] { "over" }));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Over_errors_if_there_is_only_one_value_on_the_stack()
     {
         Assert.Throws<InvalidOperationException>(() => Forth.Evaluate(new[] { "1 over" }));
