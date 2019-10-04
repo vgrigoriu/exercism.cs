@@ -47,6 +47,12 @@ public class Evaluator
         {
             stack.Push(stack.Pop() * stack.Pop());
         }
+        else if (word == "/")
+        {
+            var denom = stack.Pop();
+            var num = stack.Pop();
+            stack.Push(num / denom);
+        }
         else
         {
             throw new InvalidOperationException($"Don't know how to handle {word}");

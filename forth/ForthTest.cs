@@ -65,7 +65,7 @@ public class ForthTest
         Assert.Throws<InvalidOperationException>(() => Forth.Evaluate(new[] { "1 *" }));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Division_can_divide_two_numbers()
     {
         Assert.Equal("4", Forth.Evaluate(new[] { "12 3 /" }));
