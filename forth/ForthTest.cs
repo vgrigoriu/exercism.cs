@@ -53,13 +53,13 @@ public class ForthTest
         Assert.Equal("8", Forth.Evaluate(new[] { "2 4 *" }));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Multiplication_errors_if_there_is_nothing_on_the_stack()
     {
         Assert.Throws<InvalidOperationException>(() => Forth.Evaluate(new[] { "*" }));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Multiplication_errors_if_there_is_only_one_value_on_the_stack()
     {
         Assert.Throws<InvalidOperationException>(() => Forth.Evaluate(new[] { "1 *" }));
