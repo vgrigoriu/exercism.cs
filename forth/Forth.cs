@@ -43,5 +43,13 @@ public class Evaluator
         {
             stack.Push(- stack.Pop() + stack.Pop());
         }
+        else if (word == "*")
+        {
+            stack.Push(stack.Pop() * stack.Pop());
+        }
+        else
+        {
+            throw new InvalidOperationException($"Don't know how to handle {word}");
+        }
     }
 }

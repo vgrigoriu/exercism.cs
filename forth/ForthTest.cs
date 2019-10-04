@@ -47,7 +47,7 @@ public class ForthTest
         Assert.Throws<InvalidOperationException>(() => Forth.Evaluate(new[] { "1 -" }));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Multiplication_can_multiply_two_numbers()
     {
         Assert.Equal("8", Forth.Evaluate(new[] { "2 4 *" }));
