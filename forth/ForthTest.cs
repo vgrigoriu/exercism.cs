@@ -113,13 +113,13 @@ public class ForthTest
         Assert.Equal("1 1", Forth.Evaluate(new[] { "1 dup" }));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Dup_copies_the_top_value_on_the_stack()
     {
         Assert.Equal("1 2 2", Forth.Evaluate(new[] { "1 2 dup" }));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Dup_errors_if_there_is_nothing_on_the_stack()
     {
         Assert.Throws<InvalidOperationException>(() => Forth.Evaluate(new[] { "dup" }));
