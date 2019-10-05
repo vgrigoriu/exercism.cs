@@ -12,8 +12,6 @@ public static class Forth
 
 public class Evaluator
 {
-    private readonly Stack<int> stack = new Stack<int>();
-
     private readonly Dictionary<string, Action<Stack<int>>> operations = new Dictionary<string, Action<Stack<int>>>
     {
         { "+", st => st.Push(st.Pop() + st.Pop()) },
@@ -48,23 +46,42 @@ public class Evaluator
                 st.Push(n2);
             }
         },
+        { ";", st => {/* ignore semicolons */} }
     };
 
     public string Evaluate(string[] instructions)
     {
+        var stack = new Stack<int>();
         foreach (var instruction in instructions)
         {
-            var words = instruction.Split(" ");
-            foreach (var word in words)
+            if (instruction.StartsWith(":"))
             {
-                HandleWord(word);
+                // define new word
+                var parts = instruction.Split(" ");
+                var newWord = parts[1];
+                Action<Stack<int>> newOperation = st => {
+                    foreach (var word in parts.Skip(2))
+                    {
+                        HandleWord(word, st);
+                    }
+                };
+                operations[newWord] = newOperation;
+            }
+            else
+            {
+                // evaluate expession
+                var words = instruction.Split(" ");
+                foreach (var word in words)
+                {
+                    HandleWord(word, stack);
+                }
             }
         }
 
         return String.Join(" ", stack.Reverse());
     }
 
-    private void HandleWord(string word)
+    private void HandleWord(string word, Stack<int> stack)
     {
         // is it a number?
         if (int.TryParse(word, out var n))

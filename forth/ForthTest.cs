@@ -191,31 +191,31 @@ public class ForthTest
         Assert.Throws<InvalidOperationException>(() => Forth.Evaluate(new[] { "1 over" }));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void User_defined_words_can_consist_of_built_in_words()
     {
         Assert.Equal("1 1 1", Forth.Evaluate(new[] { ": dup-twice dup dup ;", "1 dup-twice" }));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void User_defined_words_execute_in_the_right_order()
     {
         Assert.Equal("1 2 3", Forth.Evaluate(new[] { ": countup 1 2 3 ;", "countup" }));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void User_defined_words_can_override_other_user_defined_words()
     {
         Assert.Equal("1 1 1", Forth.Evaluate(new[] { ": foo dup ;", ": foo dup dup ;", "1 foo" }));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void User_defined_words_can_override_built_in_words()
     {
         Assert.Equal("1 1", Forth.Evaluate(new[] { ": swap dup ;", "1 swap" }));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void User_defined_words_can_override_built_in_operators()
     {
         Assert.Equal("12", Forth.Evaluate(new[] { ": + * ;", "3 4 +" }));
