@@ -233,7 +233,7 @@ public class ForthTest
         Assert.Equal("11", Forth.Evaluate(new[] { ": foo 10 ;", ": foo foo 1 + ;", "foo" }));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void User_defined_words_cannot_redefine_numbers()
     {
         Assert.Throws<InvalidOperationException>(() => Forth.Evaluate(new[] { ": 1 2 ;" }));

@@ -76,6 +76,11 @@ public class Evaluator
     {
         var parts = instruction.Split(" ");
         var newWord = parts[1];
+        // is it a number?
+        if (int.TryParse(newWord, out var n))
+        {
+            throw new InvalidOperationException($"Cannot redefine number {newWord}");
+        }
         var actions = parts.Skip(2)
             .Select(GetOperation)
             // we need to materialize this to a list
