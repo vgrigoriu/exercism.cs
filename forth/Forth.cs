@@ -56,16 +56,7 @@ public class Evaluator
         {
             if (instruction.StartsWith(":"))
             {
-                // define new word
-                var parts = instruction.Split(" ");
-                var newWord = parts[1];
-                Action<Stack<int>> newOperation = st => {
-                    foreach (var word in parts.Skip(2))
-                    {
-                        HandleWord(word, st);
-                    }
-                };
-                operations[newWord] = newOperation;
+                DefineNewWord(instruction);
             }
             else
             {
@@ -81,16 +72,39 @@ public class Evaluator
         return String.Join(" ", stack.Reverse());
     }
 
+    private void DefineNewWord(string instruction)
+    {
+        var parts = instruction.Split(" ");
+        var newWord = parts[1];
+        var actions = parts.Skip(2)
+            .Select(GetOperation)
+            // we need to materialize this to a list
+            // so that each word is mapped to its current operation
+            .ToList();
+        operations[newWord] = stack =>
+        {
+            foreach (var action in actions)
+            {
+                action.Invoke(stack);
+            }
+        };
+    }
+
     private void HandleWord(string word, Stack<int> stack)
+    {
+        GetOperation(word).Invoke(stack);
+    }
+
+    private Action<Stack<int>> GetOperation(string word)
     {
         // is it a number?
         if (int.TryParse(word, out var n))
         {
-            stack.Push(n);
+            return stack => stack.Push(n);
         }
         else if (operations.ContainsKey(word))
         {
-            operations[word](stack);
+            return operations[word];
         }
         else
         {

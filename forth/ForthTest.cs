@@ -221,13 +221,13 @@ public class ForthTest
         Assert.Equal("12", Forth.Evaluate(new[] { ": + * ;", "3 4 +" }));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void User_defined_words_can_use_different_words_with_the_same_name()
     {
         Assert.Equal("5 6", Forth.Evaluate(new[] { ": foo 5 ;", ": bar foo ;", ": foo 6 ;", "bar foo" }));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void User_defined_words_can_define_word_that_uses_word_with_the_same_name()
     {
         Assert.Equal("11", Forth.Evaluate(new[] { ": foo 10 ;", ": foo foo 1 + ;", "foo" }));
