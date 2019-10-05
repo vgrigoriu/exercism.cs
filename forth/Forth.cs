@@ -14,6 +14,42 @@ public class Evaluator
 {
     private readonly Stack<int> stack = new Stack<int>();
 
+    private readonly Dictionary<string, Action<Stack<int>>> operations = new Dictionary<string, Action<Stack<int>>>
+    {
+        { "+", st => st.Push(st.Pop() + st.Pop()) },
+        { "-", st => st.Push(- st.Pop() + st.Pop()) },
+        { "*", st => st.Push(st.Pop() * st.Pop()) },
+        { "/", st =>
+            {
+                var denom = st.Pop();
+                if (denom == 0)
+                {
+                    throw new InvalidOperationException("Cannot divide by 0");
+                }
+                var num = st.Pop();
+                st.Push(num / denom);
+            }
+        },
+        { "dup", st => st.Push(st.Peek()) },
+        { "drop", st => st.Pop() },
+        { "swap", st =>
+            {
+                var n1 = st.Pop();
+                var n2 = st.Pop();
+                st.Push(n1);
+                st.Push(n2);
+            }
+        },
+        { "over", st =>
+            {
+                var n1 = st.Pop();
+                var n2 = st.Peek();
+                st.Push(n1);
+                st.Push(n2);
+            }
+        },
+    };
+
     public string Evaluate(string[] instructions)
     {
         foreach (var instruction in instructions)
@@ -35,49 +71,9 @@ public class Evaluator
         {
             stack.Push(n);
         }
-        else if (word == "+")
+        else if (operations.ContainsKey(word))
         {
-            stack.Push(stack.Pop() + stack.Pop());
-        }
-        else if (word == "-")
-        {
-            stack.Push(- stack.Pop() + stack.Pop());
-        }
-        else if (word == "*")
-        {
-            stack.Push(stack.Pop() * stack.Pop());
-        }
-        else if (word == "/")
-        {
-            var denom = stack.Pop();
-            if (denom == 0)
-            {
-                throw new InvalidOperationException("Cannot divide by 0");
-            }
-            var num = stack.Pop();
-            stack.Push(num / denom);
-        }
-        else if (word == "dup")
-        {
-            stack.Push(stack.Peek());
-        }
-        else if (word == "drop")
-        {
-            stack.Pop();
-        }
-        else if (word == "swap")
-        {
-            var n1 = stack.Pop();
-            var n2 = stack.Pop();
-            stack.Push(n1);
-            stack.Push(n2);
-        }
-        else if (word == "over")
-        {
-            var n1 = stack.Pop();
-            var n2 = stack.Peek();
-            stack.Push(n1);
-            stack.Push(n2);
+            operations[word](stack);
         }
         else
         {
