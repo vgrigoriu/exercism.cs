@@ -86,7 +86,7 @@ public class Evaluator
             // we need to materialize this to a list
             // so that each word is mapped to its current operation
             .ToList();
-        operations[newWord] = stack =>
+        operations[newWord.ToLowerInvariant()] = stack =>
         {
             foreach (var action in actions)
             {
@@ -107,9 +107,9 @@ public class Evaluator
         {
             return stack => stack.Push(n);
         }
-        else if (operations.ContainsKey(word))
+        else if (operations.ContainsKey(word.ToLowerInvariant()))
         {
-            return operations[word];
+            return operations[word.ToLowerInvariant()];
         }
         else
         {

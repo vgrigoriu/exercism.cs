@@ -239,43 +239,43 @@ public class ForthTest
         Assert.Throws<InvalidOperationException>(() => Forth.Evaluate(new[] { ": 1 2 ;" }));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void User_defined_words_errors_if_executing_a_non_existent_word()
     {
         Assert.Throws<InvalidOperationException>(() => Forth.Evaluate(new[] { "foo" }));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Case_insensitivity_dup_is_case_insensitive()
     {
         Assert.Equal("1 1 1 1", Forth.Evaluate(new[] { "1 DUP Dup dup" }));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Case_insensitivity_drop_is_case_insensitive()
     {
         Assert.Equal("1", Forth.Evaluate(new[] { "1 2 3 4 DROP Drop drop" }));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Case_insensitivity_swap_is_case_insensitive()
     {
         Assert.Equal("2 3 4 1", Forth.Evaluate(new[] { "1 2 SWAP 3 Swap 4 swap" }));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Case_insensitivity_over_is_case_insensitive()
     {
         Assert.Equal("1 2 1 2 1", Forth.Evaluate(new[] { "1 2 OVER Over over" }));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Case_insensitivity_user_defined_words_are_case_insensitive()
     {
         Assert.Equal("1 1 1 1", Forth.Evaluate(new[] { ": foo dup ;", "1 FOO Foo foo" }));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Case_insensitivity_definitions_are_case_insensitive()
     {
         Assert.Equal("1 1 1 1", Forth.Evaluate(new[] { ": SWAP DUP Dup dup ;", "1 swap" }));
