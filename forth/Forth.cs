@@ -60,12 +60,7 @@ public class Evaluator
             }
             else
             {
-                // evaluate expession
-                var words = instruction.Split(" ");
-                foreach (var word in words)
-                {
-                    HandleWord(word, stack);
-                }
+                EvaluateExpression(stack, instruction);
             }
         }
 
@@ -95,9 +90,13 @@ public class Evaluator
         };
     }
 
-    private void HandleWord(string word, Stack<int> stack)
+    private void EvaluateExpression(Stack<int> stack, string instruction)
     {
-        GetOperation(word).Invoke(stack);
+        var words = instruction.Split(" ");
+        foreach (var word in words)
+        {
+            GetOperation(word).Invoke(stack);
+        }
     }
 
     private Action<Stack<int>> GetOperation(string word)
